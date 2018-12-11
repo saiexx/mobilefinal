@@ -65,7 +65,7 @@ public class RegisterFragment extends Fragment {
             user.setPassword(password.getText().toString().trim());
 
             databaseHelper.addUser(user);
-            Toast.makeText(getActivity(),"sucess",Toast.LENGTH_SHORT);
+            Toast.makeText(getActivity(),"success",Toast.LENGTH_SHORT);
         }else{
             Toast.makeText(getActivity(),"error",Toast.LENGTH_SHORT);
         }
