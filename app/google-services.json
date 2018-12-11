@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "18027316204",
+    "firebase_url": "https://finalexam-2713a.firebaseio.com",
+    "project_id": "finalexam-2713a",
+    "storage_bucket": "finalexam-2713a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:18027316204:android:e44e24b1b49e3b02",
+        "android_client_info": {
+          "package_name": "th.ac.kmitl.a59070012"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "18027316204-pu9tcdp13aal7eu6ie4sgg8m6o7qalk3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuEAC1cQs47xzxsaGvuKSvylm4CDCEd-E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
