@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,11 @@ public class RegisterFragment extends Fragment {
         registButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                postData();
+                if(formValidate()){
+                    formValidate();
+                }else{
+                postData();}
+
             }
         });
     }
@@ -65,9 +70,38 @@ public class RegisterFragment extends Fragment {
             user.setPassword(password.getText().toString().trim());
 
             databaseHelper.addUser(user);
-            Toast.makeText(getActivity(),"success",Toast.LENGTH_SHORT);
+            Toast.makeText(getActivity(),"success",Toast.LENGTH_LONG).show();
+            Log.d("REGISTER","success");
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_view,new LoginFragment()).disallowAddToBackStack().commit();
         }else{
-            Toast.makeText(getActivity(),"error",Toast.LENGTH_SHORT);
+            Toast.makeText(getActivity(),"error",Toast.LENGTH_LONG).show();
+            Log.d("REGISTER","error");
         }
+    }
+
+    private boolean formValidate(){
+        username = getView().findViewById(R.id.user_text);
+        name = getView().findViewById(R.id.name_text);
+        age = getView().findViewById(R.id.age_text);
+        password = getView().findViewById(R.id.password_text);
+        String usernameText = username.getText().toString().trim();
+        String nameText = name.getText().toString().trim();
+        int ageInt = Integer.parseInt(age.getText().toString().trim());
+        String passwordText = password.getText().toString().trim();
+
+        if(usernameText.length() < 6 || usernameText.length() > 12){
+            Toast.makeText(getActivity(),"USERNAME MUST HAVE LENGHT IN 6 to 12 CHARACTER",Toast.LENGTH_LONG).show();
+            return true;
+        }
+        if(ageInt < 10 || ageInt > 80){
+            Toast.makeText(getActivity(),"YOUR AGE MUST BE IN RANGE OF 10 TO 80",Toast.LENGTH_LONG).show();
+            return true;
+        }
+        if(passwordText.length() < 6){
+            Toast.makeText(getActivity(),"YOUR PASSWORD MUST HAVE AT LEAST 6 CHARACTER",Toast.LENGTH_LONG).show();
+            return true;
+        }
+
+        return false;
     }
 }

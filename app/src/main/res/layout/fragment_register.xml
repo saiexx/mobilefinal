@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:drawableTint="@color/colorPrimaryDark"
             android:hint="Age"
-            android:inputType="text" />
+            android:inputType="number" />
         <EditText
             android:id="@+id/password_text"
             android:layout_width="match_parent"
